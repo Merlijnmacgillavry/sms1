@@ -12,3 +12,10 @@ stages:
     - src/text_preprocessing.py
     outs:
     - output/preprocessor.joblib
+  train:
+    cmd: python src/text_classification.py
+    deps:
+    - output/preprocessed_data.joblib
+    - src/text_classification.py
+    outs:
+    - output/model.joblib
